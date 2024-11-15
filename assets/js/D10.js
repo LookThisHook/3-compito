@@ -318,6 +318,7 @@ const movies = [
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+
 console.log("------esercizio 11-------")
 const cars =
   {
@@ -332,9 +333,11 @@ const cars =
     return Object
   }
   console.log(deleteProp(cars, "trims"));
+
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+
 console.log("------esercizio 12-------");
 
 function newestMovie(movies) {
@@ -352,23 +355,50 @@ console.log(newestMovie(movies));
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
+
 console.log("------esercizio 13-------")
+function countMovies(movies) {
+  return movies.length; 
+}
+console.log(countMovies(movies));
+
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
+
 console.log("------esercizio 14-------")
+function onlyTheYears(movies) {
+  return movies.map(movie => movie.Year); 
+}
+console.log(onlyTheYears(movies));
+
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
+
 console.log("------esercizio 15-------")
+function onlyInLastMillennium(movies) {
+  return movies.filter(movie => parseInt(movie.Year) >= 1901 && parseInt(movie.Year) <= 2000);
+}
+console.log(onlyInLastMillennium(movies));
+
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 console.log("------esercizio 16-------")
+function sumAllTheYears(movies) {
+  return movies.reduce((sum, movie) => sum + parseInt(movie.Year), 0);
+}
+console.log(sumAllTheYears(movies));
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 console.log("------esercizio 17-------")
+function searchByTitle(movies, searchString) {
+  return movies.filter(movie => movie.Title.toLowerCase().includes(searchString.toLowerCase()));
+}
+console.log(searchByTitle(movies,"THE AVENGERS"));
+console.log(searchByTitle(movies,"the avengers"));
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
@@ -378,36 +408,79 @@ console.log("------esercizio 18-------")
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 console.log("------esercizio 19-------")
+
+
+
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-console.log("------esercizio 20-------")
+
+
+function selectContainer() {
+  return document.getElementById("container");
+}
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-console.log("------esercizio 21-------")
+
+
+function selectAllTD() {
+  return document.querySelectorAll("td");
+}
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-console.log("------esercizio 22-------")
+
+
+function printAllTDText() {
+  const tds = document.querySelectorAll("td");
+  tds.forEach(td => console.log(td.textContent)); 
+}
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-console.log("------esercizio 23-------")
+
+
+function addRedBackgroundToLinks() {
+  const links = document.querySelectorAll("a");
+  links.forEach(link => link.style.backgroundColor = "red");
+}
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
-console.log("------esercizio 24-------")
+
+function addToList() {
+  const list = document.getElementById("myList");
+  const newItem = document.createElement("li");
+  newItem.textContent = "Nuovo Elemento"; 
+  list.appendChild(newItem);
+}
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
-console.log("------esercizio 25-------")
+
+
+function clear() {
+  const list = document.getElementById("myList");
+  list.innerHTML = "";
+}
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
-console.log("------esercizio 26-------")
+
+function addClassToTr() {
+  const rows = document.querySelectorAll("tr");
+  rows.forEach(row => row.classList.add("test"));
+}
+
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
@@ -437,6 +510,15 @@ console.log("------esercizio 26-------")
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+console.log("----esercizio29----");
+function isItPrime(num) {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false; 
+  }
+  return true;
+}
+console.log(isItPrime(91));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 

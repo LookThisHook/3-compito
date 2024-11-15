@@ -85,13 +85,15 @@ console.log(dice());
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
 console.log("------esercizio 2-------")
-let b=70
-let a= 50
-function whoIsBigger() {
-  return Math.max(a,b);
-  
-}
-console.log(whoIsBigger());
+function whoIsBigger(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  } else {
+    return number2;
+  }
+} 
+console.log(whoIsBigger(93,56));
+
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
 
